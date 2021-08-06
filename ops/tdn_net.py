@@ -11,7 +11,7 @@ import torch.nn.functional as F
 from ops.base_module import *
 
 
-class TDN_Net(nn.Module):
+class TDN_Net(nn.Module): # short-term tdm op
 
     def __init__(self,resnet_model,resnet_model1,apha,belta):
         super(TDN_Net, self).__init__()
@@ -77,6 +77,9 @@ def tdn_net(base_model=None,num_segments=8,pretrained=True, **kwargs):
     if("50" in base_model):
         resnet_model = fbresnet50(num_segments, pretrained)
         resnet_model1 = fbresnet50(num_segments, pretrained)
+    elif("18" in base_model):
+        resnet_model = fbresnet18(num_segments, pretrained)
+        resnet_model1 = fbresnet18(num_segments, pretrained)
     else:
         resnet_model = fbresnet101(num_segments, pretrained)
         resnet_model1 = fbresnet101(num_segments, pretrained)

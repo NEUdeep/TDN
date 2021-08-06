@@ -16,6 +16,7 @@ parser.add_argument('--decoded_type', type=str, default="decord",  choices=['dec
 # ========================= Model Configs ==========================
 parser.add_argument('--arch', type=str, default="resnet50")
 parser.add_argument('--num_segments', type=int, default=3)
+parser.add_argument('--topk', type=int, default=5)
 parser.add_argument('--consensus_type', type=str, default='avg')
 parser.add_argument('--k', type=int, default=3)
 parser.add_argument('--dropout', default=0.5, type=float, metavar='DO',
@@ -24,7 +25,7 @@ parser.add_argument('--loss_type', type=str, default="nll", choices=['nll'])
 parser.add_argument('--img_feature_dim', default=256, type=int,
                     help="the feature dimension for each frame")
 parser.add_argument('--suffix', type=str, default=None)
-parser.add_argument('--pretrain', type=str, default='imagenet')
+parser.add_argument('--pretrain', type=str, default=True)
 parser.add_argument('--tune_from', type=str, default=None,
                     help='fine-tune from checkpoint')
 parser.add_argument('--experiment_name', type=str, default='TDN')
