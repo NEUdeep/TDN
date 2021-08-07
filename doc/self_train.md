@@ -303,9 +303,10 @@ but origin is :top1=52.3%; maybe our parameters is not good; and found lr and wd
 `3 label`
 
 - 1x1x1(Frames*crops*clips)
-### TDN_resnet18_lr(0.01)_epoch(100)-top1=92.66%(3x1x1)(no pretrained from imagenet)
+### TDN_resnet18_lr(0.02)_epoch(100)-top1=92.66%(3x1x1)(no pretrained from imagenet)
 2021.08.06
 [TDN__high_events_RGB_resnet18_avg_segment1_e100](log/TDN__high_events_RGB_resnet18_avg_segment1_e100_True/log.txt)
+[graph](log/TDN__high_events_RGB_resnet18_avg_segment1_e100_True/events.out.tfevents.1628219376.workspace-job-5fadedfbbf46a9bf616072f7-xqd6z)
 `08/06`
 
 `CUDA_VISIBLE_DEVICES=0,1 python test_models_center_crop.py  high_events \`
@@ -321,7 +322,7 @@ but origin is :top1=52.3%; maybe our parameters is not good; and found lr and wd
 
 
 - 3x1x1(Frames*crops*clips)
-### TDN_resnet18_lr(0.01)_epoch(100)-top1=90.96%(3x1x1)(no pretrained from imagenet)
+### TDN_resnet18_lr(0.02)_epoch(100)-top1=90.96%(3x1x1)(no pretrained from imagenet)
 2021.08.06
 [TDN__high_events_RGB_resnet18_avg_segment3_e100](log/TDN__high_events_RGB_resnet18_avg_segment3_e100_True/log.txt)
 [graph](log/TDN__high_events_RGB_resnet18_avg_segment3_e100_True/events.out.tfevents.1628221674.workspace-job-5fadedfbbf46a9bf616072f7-xqd6z)
@@ -341,7 +342,7 @@ but origin is :top1=52.3%; maybe our parameters is not good; and found lr and wd
 
 
 - 1x1x1(Frames*crops*clips)
-### TDN_resnet50_lr(0.01)_epoch(100)-top1=93.22%(5x1x1)(pretrained from imagenet)
+### TDN_resnet50_lr(0.02)_epoch(100)-top1=93.22%(5x1x1)(pretrained from imagenet)
 2021.08.06
 [log/TDN__high_events_RGB_resnet50_avg_segment1_e100](log/TDN__high_events_RGB_resnet50_avg_segment1_e100_True/log.txt)
 [args](log/TDN__high_events_RGB_resnet50_avg_segment1_e100_True/args.txt)
@@ -362,7 +363,7 @@ but origin is :top1=52.3%; maybe our parameters is not good; and found lr and wd
 
 
 - 3x1x1(Frames*crops*clips)
-### TDN_resnet50_lr(0.01)_epoch(100)-top1=93.22%(3x1x1)(pretrained from imagenet)
+### TDN_resnet50_lr(0.02)_epoch(100)-top1=93.22%(3x1x1)(pretrained from imagenet)
 2021.08.06
 [TDN__high_events_RGB_resnet50_avg_segment3_e100](log/TDN__high_events_RGB_resnet50_avg_segment3_e100_True/log.txt)
 [args](log/TDN__high_events_RGB_resnet50_avg_segment3_e100_True/args.txt)
@@ -383,9 +384,10 @@ but origin is :top1=52.3%; maybe our parameters is not good; and found lr and wd
 
 
 - 5x1x1(Frames*crops*clips)
-### TDN_resnet50_lr(0.01)_epoch(100)-top1=93.22%(3x1x1)(pretrained from imagenet)
+### TDN_resnet50_lr(0.02)_epoch(100)-top1=96.61(3x1x1)(pretrained from imagenet)
 2021.08.06
-[TDN__high_events_RGB_resnet18_avg_segment1_e100](log/TDN__high_events_RGB_resnet18_avg_segment1_e100_True/log.txt)
+[args](log/TDN__high_events_RGB_resnet50_avg_segment5_e100_True/args.txt)
+[TDN__high_events_RGB_resnet50_avg_segment5_e100](log/TDN__high_events_RGB_resnet50_avg_segment5_e100_True/events.out.tfevents.1628236987.workspace-job-5fadedfbbf46a9bf616072f7-xqd6z)
 `08/06`
 
 `CUDA_VISIBLE_DEVICES=0,1 python test_models_center_crop.py  high_events \`
@@ -395,7 +397,29 @@ but origin is :top1=52.3%; maybe our parameters is not good; and found lr and wd
 `python pkl_to_results.py --num_clips 1 --test_crops 1 --output_dir ./result --topk 3`
 
 
-`Overall Prec@1 93.22% Prec@5 100.00%`[3x1x1]
-`Overall Prec@1 89.27% Prec@5 100.00%`[5x1x1]
-- val `93.75` with [3x1x1](resnet50)
-- test `92.66` with [3x3x1](resnet50)
+`Overall Prec@1 96.61% Prec@5 100.00%`[3x1x1]
+`Overall Prec@1 92.66% Prec@5 100.00%`[3x3x1]
+`Overall Prec@1 96.61% Prec@5 100.00%`[5x1x1]
+- val `96.5909090909091` with [5x1x1](resnet50)
+- test `96.61` with [5x3x1](resnet50)
+- test `96.61` with [7x3x1](resnet50)
+
+
+- 5x1x1(Frames*crops*clips)
+### TDN_resnet101_lr(0.02)_epoch(100)-top1=96.61(5x1x1)(pretrained from imagenet)
+2021.08.07
+[args](log/TDN__high_events_RGB_resnet50_avg_segment5_e100_True/args.txt)
+[TDN__high_events_RGB_resnet101_avg_segment5_e100](log/TDN__high_events_RGB_resnet101_avg_segment5_e100_True/events.out.tfevents.1628300916.workspace-job-5fadedfbbf46a9bf616072f7-xqd6z)
+`08/07`
+
+`CUDA_VISIBLE_DEVICES=0,1 python test_models_center_crop.py  high_events \`
+`--archs='resnet18' --weights  --test_segments=1 \`
+`--test_crops=1 --clip_index 0 --batch_size=64 --full_res --output_dir ./result  \`
+`-j 4 --topk 2`
+`python pkl_to_results.py --num_clips 1 --test_crops 1 --output_dir ./result --topk 3`
+
+
+`Overall Prec@1 96.61% Prec@5 100.00%`[5x1x1]
+- val `96.5909090909091` with [5x1x1](resnet50)
+- test `96.590909` with [5x3x1](resnet101)
+- test `88.70%` with [7x3x1](resnet101)
